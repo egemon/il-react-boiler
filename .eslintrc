@@ -3,6 +3,9 @@
     "jsx": true,
     "modules": true
   },
+  "globals": {
+    "React": false
+  },
   "env": {
     "browser": true,
     "node": true
@@ -13,7 +16,7 @@
     "strict": [2, "never"],
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2
+    "react/react-in-jsx-scope": 0
   },
   "plugins": [
     "react"

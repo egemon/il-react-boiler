@@ -9,7 +9,7 @@ module.exports = {
     app: './entry-point',
   },
   output: {
-    path: __dirname + '/back/public',
+    path: __dirname + '/../back/public',
     filename: '[name].js',        // key of entry
     publicPath: '/',        //  http://static.com/js/app/js
     chunkFilename: 'chunk-[id].js'
@@ -18,9 +18,6 @@ module.exports = {
     loaders: [{
       test: /\.(js|jsx)$/,
       include: [__dirname + '/src'],
-      query: {
-        presets: ['react', 'es2015'],
-      },
       // exclude: /node_modules/,
       loader: 'babel'
     },{
@@ -41,6 +38,10 @@ module.exports = {
     }],
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      React: 'react',
+      ReactDOM: 'react-dom',
+    }),
     new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin('[name].etp.css'
       , {allChunks: true}
@@ -59,7 +60,10 @@ module.exports = {
     }),
   ],
   resolve: {
-    modulesDirectories: [path.resolve(__dirname, '../node_modules')],
+    modulesDirectories: [
+      path.resolve(__dirname, '../node_modules'),
+      path.resolve(__dirname, 'src')
+    ],
     extensions: ['', '.js', '.jsx', '.styl'],
   },
   resolveLoader:{

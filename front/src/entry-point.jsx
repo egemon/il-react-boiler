@@ -1,11 +1,13 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import TodoApp from './components/todo-app';
+import {Provider} from 'react-redux';
 
-// import {Provider} from 'react-redux';
-// import {createStore} from 'redux';
+import AppRouter from './pages/router';
+import createAppStore from './rootReducer';
 
 ReactDOM.render(
-  <TodoApp/>,
+  <Provider store={createAppStore()}>
+    <AppRouter/>
+  </Provider>,
   document.getElementById('react-root')
 );
