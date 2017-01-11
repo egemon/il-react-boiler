@@ -2,4 +2,5 @@
 --colors
 --recursive
 --webpack-config ./front/webpack.tests.js
+ --require ignore-styles
 front/src/**/*.test.js
