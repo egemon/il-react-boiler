@@ -20,9 +20,7 @@ module.exports = {
       loader: 'babel'
     },{
       test: /\.styl$/,
-      loader: 'style!css?modules&importLoaders=1&localIdentName=[path].[name].[local].[hash:base64:5]' +
-        '!autoprefixer?browsers=last 2 versions' +
-        '!stylus?resolve url',
+      loader: 'ignore-loader',
     },{
       test: /\.(svg|jpg|png)$/,
       loader: 'file?name=[path][name].[ext]?[hash]' // we can use here url loader to use it in js like data-url base64, hot reload need hash

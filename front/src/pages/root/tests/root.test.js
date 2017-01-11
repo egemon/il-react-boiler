@@ -1,9 +1,9 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
+import expectJSX from 'expect-jsx';
+expect.extend(expectJSX); // toEqualJSX, ToIncludeJSX
 import Root from '../root';
-import Links from 'components/links/links';
-
 
 describe('Root', () => {
   it('should render header', () => {
@@ -13,13 +13,7 @@ describe('Root', () => {
     console.log('output', output);
 
     const actual = renderer.getRenderOutput();
-    const expected = (
-      <div>
-        <h1>Our Site</h1>
-        <Links/>
-        Hello
-      </div>
-    );
-    expect(actual).toEqual(expected);
+    const expected = <h1>Our Site</h1>;
+    expect(actual).toIncludeJSX(expected);
   });
 });

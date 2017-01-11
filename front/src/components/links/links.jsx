@@ -1,6 +1,6 @@
 import {Link} from 'react-router';
 
-// import {active} from './links.styl';
+import {active} from './links.styl';
 
 const Links = () => (
   <nav>
