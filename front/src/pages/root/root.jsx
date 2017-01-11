@@ -1,4 +1,4 @@
-import Links from 'components/links/links';
+import Links from '../../components/links/links';
 
 const Home = ({children}) => (
   <div>

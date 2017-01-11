@@ -1,0 +1,4 @@
+--watch
+--colors
+--recursive
+--webpack-config ./front/webpack.test.js
