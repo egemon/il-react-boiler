@@ -3,7 +3,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 
 import AppRouter from './pages/router';
-import createAppStore from './rootReducer';
+import createAppStore from './store-creator';
 
 ReactDOM.render(
   <Provider store={createAppStore()}>

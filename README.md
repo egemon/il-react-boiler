@@ -17,6 +17,7 @@ FE:
 8) precommit hooks
 9) Use lazy loading
 10) unit tests
+11) run all tests on code update 
 
 BE:
 0) Configure correctly
