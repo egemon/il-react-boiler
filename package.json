@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --inline --hot --config ./front/webpack.dev.js",
-    "test": "mocha-webpack"
+    "test": "mocha-webpack",
+    "build": "webpack --config ./front/webpack.prod.js",
+    "server": "webpack --config ./front/webpack.prod.js && node ./back/server.js"
   },
   "author": "",
   "license": "ISC",

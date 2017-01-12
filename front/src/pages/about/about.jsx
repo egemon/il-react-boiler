@@ -1,5 +1,5 @@
 import Counter from 'components/counter/counter';
-import {changeCount} from 'components/counter/actions';
+import {changeCount} from 'components/counter/counter-actions-creators';
 import {connect} from 'react-redux';
 
 
