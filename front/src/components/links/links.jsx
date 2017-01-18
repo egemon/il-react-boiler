@@ -10,19 +10,19 @@ const Links = () => (
       </Link>
     </div>
     <div>
-      <Link activeClassName={active} to="message/3">
+      <Link activeClassName={active} to="/message/3">
         Message
       </Link>
     </div>
     <div>
-      <Link activeClassName={active} to="news">
+      <Link activeClassName={active} to="/news">
         News
       </Link>
     </div>
     <div>
       <Link activeClassName={active}
         to={{
-          pathname: 'contacts',
+          pathname: '/contacts',
           query: {
             subject: 'Yo'
           }

@@ -4,9 +4,11 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 
-// app.get('/api/v1/hello', (req, res) => {
-//   res.send('Hello World!')
-// });
+app.get('/api/v1/message/:id', (req, res) => {
+  console.log('req.params.id', req.params.id);
+
+  res.send('Hello World!')
+});
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 });
