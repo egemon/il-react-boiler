@@ -6,7 +6,7 @@ let HTMLPlugin = require('html-webpack-plugin');
 module.exports = {
   context: __dirname + '/src',
   entry: {
-    app: './entry-point',
+    app: ['babel-polyfill', './entry-point'],
   },
   output: {
     path: __dirname + '/../back/public',

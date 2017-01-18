@@ -2,7 +2,7 @@ import {Router, Route, IndexRoute, Redirect, browserHistory} from 'react-router'
 import Root from 'pages/root/root';
 import Contacts from 'pages/contacts/contacts';
 import About from 'pages/about/about';
-import Message from 'pages/message/message';
+import Message from 'pages/messages/messages';
 import News from 'pages/news/news';
 
 
