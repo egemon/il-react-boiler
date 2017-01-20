@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --inline --hot --config ./front/webpack.dev.js",
     "test": "mocha-webpack",
     "build": "webpack --config ./front/webpack.prod.js",
-    "server": "webpack --config ./front/webpack.prod.js && node ./back/server.js"
+    "server": "webpack --config ./front/webpack.prod.js && node ./back/server.js",
+    "precommit": "eslint ./front/** && eslint ./back/**"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +28,7 @@
     "expect-jsx": "^3.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "2.24.1",
+    "husky": "^0.12.0",
     "ignore-loader": "^0.1.2",
     "jsx-loader": "^0.13.2",
     "mocha": "^3.2.0",
