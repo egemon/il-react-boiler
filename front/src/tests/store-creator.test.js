@@ -18,7 +18,7 @@ describe('store-creator', () => {
       }
     };
 
-    expect(actual).toEqual(expected);
+    expect(actual.about).toEqual(expected.about);
   });
 
   it('should initialize', () => {
@@ -27,6 +27,9 @@ describe('store-creator', () => {
     const expected = {
       about: {
         count: 0
+      },
+      messages: {
+        messages: []
       }
     };
 

@@ -1,6 +1,7 @@
 --watch
 --colors
 --recursive
+--include babel-polyfill
 --webpack-config ./front/webpack.tests.js
  --require ignore-styles
 front/src/**/*.test.js
