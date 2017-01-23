@@ -8,22 +8,22 @@ module.exports = {
   resolve: {
     modulesDirectories: [
       path.resolve(__dirname, '../node_modules'),
-      path.resolve(__dirname, 'src')
+      path.resolve(__dirname, 'src'),
     ],
     extensions: ['', '.js', '.jsx', '.styl'],
   },
   module: {
     loaders: [{
       test: /\.(js|jsx)$/,
-      include: [__dirname + '/src'],
+      include: [`${__dirname}/src`],
       // exclude: /node_modules/,
-      loader: 'babel'
-    },{
+      loader: 'babel',
+    }, {
       test: /\.styl$/,
       loader: 'ignore-loader',
-    },{
+    }, {
       test: /\.(svg|jpg|png)$/,
-      loader: 'file?name=[path][name].[ext]?[hash]' // we can use here url loader to use it in js like data-url base64, hot reload need hash
+      loader: 'file?name=[path][name].[ext]?[hash]', // we can use here url loader to use it in js like data-url base64, hot reload need hash
     }],
   },
   plugins: [

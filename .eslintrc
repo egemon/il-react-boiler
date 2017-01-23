@@ -1,10 +1,13 @@
 {
+  "extends": "airbnb",
   "ecmaFeatures": {
     "jsx": true,
     "modules": true
   },
   "globals": {
-    "React": false
+    "React": false,
+    "describe": false,
+    "it": false
   },
   "env": {
     "browser": true,
@@ -16,7 +19,10 @@
     "strict": [2, "never"],
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 0
+    "react/react-in-jsx-scope": 0,
+    "import/no-extraneous-dependencies": [2, {
+      "devDependencies": ["**/*.test.js", "**/*.test.jsx", "**/webpack.**", "**/test-helpers/**"]
+    }]
   },
   "plugins": [
     "react"

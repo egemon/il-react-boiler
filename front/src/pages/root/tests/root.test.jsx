@@ -1,10 +1,10 @@
 import React from 'react';
 import expect from 'expect';
 import expectJSX from 'expect-jsx';
-expect.extend(expectJSX); // toEqualJSX, ToIncludeJSX
 import Root from '../root';
 import renderComponent from '../../../test-helpers/render-component';
 
+expect.extend(expectJSX); // toEqualJSX, ToIncludeJSX
 
 describe('Root', () => {
   it('should render header', () => {

@@ -1,40 +1,35 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-let HTMLPlugin = require('html-webpack-plugin');
+const HTMLPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  context: __dirname + '/src',
+  context: `${__dirname}/src`,
   entry: {
     app: './entry-point',
   },
   output: {
-    path: __dirname + '/../back/public',
+    path: `${__dirname}/../back/public`,
     filename: '[name].js',        // key of entry
     publicPath: './',        //  http://static.com/js/app/js
-    chunkFilename: 'chunk-[id].js'
+    chunkFilename: 'chunk-[id].js',
   },
   module: {
     loaders: [{
       test: /\.(js|jsx)$/,
-      include: [__dirname + '/src'],
+      include: [`${__dirname}/src`],
       // exclude: /node_modules/,
-      loader: 'babel'
-    },{
+      loader: 'babel',
+    }, {
       test: /\.styl$/,
       loader: ExtractTextPlugin.extract('style',
         'css?modules&importLoaders=1&localIdentName=[path].[name].[local].[hash:base64:5]' +
         '!autoprefixer?browsers=last 2 versions' +
-        '!stylus?resolve url'
+        '!stylus?resolve url',
       ),
-      // loader: 'style!css!autoprefixer?browsers=last 2 versions!stylus?resolve url'
-      // },{
-      //   test: /\.jsx$/,
-      // loader: ExtractTextPlugin.extract('style', 'css!autoprefixer?browsers=last 2 versions!stylus?resolve url'),
-      //   loader: 'jsx!babel?presets[]=es2015'
-    },{
+    }, {
       test: /\.(svg|jpg|png)$/,
-      loader: 'file?name=[path][name].[ext]?[hash]' // we can use here url loader to use it in js like data-url base64, hot reload need hash
+      loader: 'file?name=[path][name].[ext]?[hash]', // hot reload need hash
     }],
   },
   plugins: [
@@ -44,7 +39,7 @@ module.exports = {
     }),
     new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin('[name].etp.css'
-      , {allChunks: true}
+      , { allChunks: true },
     ),
     new webpack.optimize.CommonsChunkPlugin({ // find smth commnon and creates seprated modules
       name: 'commonChank',
@@ -62,14 +57,14 @@ module.exports = {
   resolve: {
     modulesDirectories: [
       path.resolve(__dirname, '../node_modules'),
-      path.resolve(__dirname, 'src')
+      path.resolve(__dirname, 'src'),
     ],
     extensions: ['', '.js', '.jsx', '.styl'],
   },
-  resolveLoader:{
+  resolveLoader: {
     modulesDirectories: [path.resolve(__dirname, '../node_modules')],
     moduleTemplates: ['*-loader', '* '],
-    extensions: ['', '.js']
+    extensions: ['', '.js'],
   },
 
   devtool: 'cheap-module-inline-source-map',
@@ -80,7 +75,7 @@ module.exports = {
       path: '/api',
       target: 'http://localhost:3000', // express
     }],
-    historyApiFallback: true, //returns index html in case of strange request
-    contentBase: __dirname + 'back/public' // this is using for serving static files from disc
-  }
+    historyApiFallback: true, // returns index html in case of strange request
+    contentBase: `${__dirname}back/public`, // this is using for serving static files from disc
+  },
 };

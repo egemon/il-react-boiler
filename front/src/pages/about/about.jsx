@@ -1,9 +1,8 @@
-import Counter from 'components/counter/counter';
-import {changeCount} from 'components/counter/counter-actions-creators';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import Counter from '../../components/counter/counter';
+import changeCountAction from '../../components/counter/counter-actions-creators';
 
-
-const About = ({count, changeCount}) => (
+const About = ({ count, changeCount }) => (
   <div>
     <h1>About</h1>
     <Counter
@@ -13,21 +12,25 @@ const About = ({count, changeCount}) => (
   </div>
 );
 
-function mapStateToProps ({about: {count}}) {
-  return {count};
+function mapStateToProps({ about: { count } }) {
+  return { count };
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     changeCount: (count) => {
-      dispatch(changeCount('ABOUT', count))
-    }
+      dispatch(changeCountAction('ABOUT', count));
+    },
   };
 }
 
 About.propTypes = {
   count: React.PropTypes.number,
-  changeCount: React.PropTypes.func,
+  changeCount: React.PropTypes.func.isRequired,
+};
+
+About.defaultProps = {
+  count: 0,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(About);

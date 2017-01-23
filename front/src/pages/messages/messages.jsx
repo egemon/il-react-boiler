@@ -1,4 +1,4 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class Message extends React.Component {
   componentDidMount() {
@@ -8,12 +8,10 @@ class Message extends React.Component {
   // TODO: refactore
 
   renderMessages() {
-    return this.props.messages.map((message) => {
-      return message.text;
-    });
+    return this.props.messages.map(message => message.text);
   }
 
-  render () {
+  render() {
     return (
       <div>
         <h1>{this.props.params.id}</h1>
@@ -25,22 +23,33 @@ class Message extends React.Component {
   }
 }
 
-function mapStateToProps ({messages: {messages}}) {
-  return {messages};
+function mapStateToProps({ messages: { messages } }) {
+  return { messages };
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     fetchMessages: () => {
-      dispatch({type: 'MESSAGES_FETCH_REQUESTED'});
-    }
+      dispatch({ type: 'MESSAGES_FETCH_REQUESTED' });
+    },
   };
 }
 
 Message.propTypes = {
-  params: React.PropTypes.shape({}),
-  messages: React.PropTypes.array,
-  fetchMessages: React.PropTypes.func,
+  params: React.PropTypes.shape({
+    id: React.PropTypes.number,
+  }),
+  messages: React.PropTypes.arrayOf(
+    React.PropTypes.shape({
+      text: React.PropTypes.string,
+    }),
+  ),
+  fetchMessages: React.PropTypes.func.isRequired,
+};
+
+Message.defaultProps = {
+  params: {},
+  messages: [],
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Message);

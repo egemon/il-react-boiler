@@ -1,4 +1,4 @@
-const Counter = ({count, changeCount}) => (
+const Counter = ({ count, changeCount }) => (
   <div>
     <button
       onClick={() => changeCount(count - 1)}
@@ -12,7 +12,11 @@ const Counter = ({count, changeCount}) => (
 
 Counter.propTypes = {
   count: React.PropTypes.number,
-  changeCount: React.PropTypes.func,
+  changeCount: React.PropTypes.func.isRequired,
+};
+
+Counter.defaultProps = {
+  count: 0,
 };
 
 export default Counter;

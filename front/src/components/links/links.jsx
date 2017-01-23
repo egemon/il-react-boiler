@@ -1,6 +1,6 @@
-import {Navbar, Nav, NavItem} from 'react-bootstrap';
-import {Link} from 'react-router';
-import {LinkContainer} from 'react-router-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Link } from 'react-router';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Links = () => (
   <Navbar>
@@ -23,7 +23,7 @@ const Links = () => (
       </LinkContainer>
       <LinkContainer
         to={{ pathname: '/contacts',
-        query: { subject: 'Yo' } }}
+          query: { subject: 'Yo' } }}
       >
         <NavItem>Contacts</NavItem>
       </LinkContainer>

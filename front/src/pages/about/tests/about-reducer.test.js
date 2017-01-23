@@ -2,9 +2,9 @@ import expect from 'expect';
 import aboutReducer from '../about-reducer';
 
 describe('aboutReducer', () => {
-  function stateBefore () {
+  function stateBefore() {
     return {
-      count: 2
+      count: 2,
     };
   }
 
@@ -12,13 +12,13 @@ describe('aboutReducer', () => {
     const action = {
       type: 'ABOUT.CHANGE_COUNT',
       payload: {
-        count: 1
-      }
+        count: 1,
+      },
     };
 
     const actual = aboutReducer(stateBefore(), action);
     const expected = {
-      count: 1
+      count: 1,
     };
 
     expect(actual).toEqual(expected);
