@@ -7,13 +7,10 @@
     "dev-front-server": "webpack-dev-server --inline --hot --config ./front/webpack.dev.js",
     "dev-back-server": "node ./back/server.js",
     "dev": "npm run dev-front-server & npm run dev-back-server",
-
     "prod-front-server": "webpack-dev-server --config ./front/webpack.prod.js",
     "prod-back-server": "node ./back/server.js",
     "start": "npm run prod-front-server & npm run prod-back-server",
-
     "test": "mocha-webpack",
-
     "precommit": "eslint ./front/** && eslint ./back/**"
   },
   "author": "",
@@ -52,9 +49,11 @@
     "express": "^4.14.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
+    "react-router-bootstrap": "^0.23.1",
     "redux": "^3.6.0",
     "redux-saga": "^0.14.3"
   }

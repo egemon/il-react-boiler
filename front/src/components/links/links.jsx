@@ -1,37 +1,34 @@
+import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import {Link} from 'react-router';
-
-import {active} from './links.styl';
+import {LinkContainer} from 'react-router-bootstrap';
 
 const Links = () => (
-  <nav>
-    <div>
-      <Link activeClassName={active} to="/">
-        About
-      </Link>
-    </div>
-    <div>
-      <Link activeClassName={active} to="/message/3">
-        Message
-      </Link>
-    </div>
-    <div>
-      <Link activeClassName={active} to="/news">
-        News
-      </Link>
-    </div>
-    <div>
-      <Link activeClassName={active}
-        to={{
-          pathname: '/contacts',
-          query: {
-            subject: 'Yo'
-          }
-        }}
+  <Navbar>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <Link to="/">
+          React-Bootstrap
+        </Link>
+      </Navbar.Brand>
+    </Navbar.Header>
+    <Nav>
+      <LinkContainer to="/message/3">
+        <NavItem>
+          Message
+        </NavItem>
+      </LinkContainer>
+
+      <LinkContainer to="/news">
+        <NavItem>News</NavItem>
+      </LinkContainer>
+      <LinkContainer
+        to={{ pathname: '/contacts',
+        query: { subject: 'Yo' } }}
       >
-        Contact
-      </Link>
-    </div>
-  </nav>
+        <NavItem>Contacts</NavItem>
+      </LinkContainer>
+    </Nav>
+  </Navbar>
 );
 
 export default Links;
