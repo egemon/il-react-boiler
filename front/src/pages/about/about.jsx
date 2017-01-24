@@ -12,17 +12,13 @@ const About = ({ count, changeCount }) => (
   </div>
 );
 
-function mapStateToProps({ about: { count } }) {
-  return { count };
-}
+const mapStateToProps = ({ about: { count } }) => ({ count });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    changeCount: (count) => {
-      dispatch(changeCountAction('ABOUT', count));
-    },
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  changeCount: (count) => {
+    dispatch(changeCountAction('ABOUT', count));
+  },
+});
 
 About.propTypes = {
   count: React.PropTypes.number,

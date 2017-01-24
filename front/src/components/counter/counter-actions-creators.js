@@ -1,8 +1,8 @@
-export default function changeCount(page, count) {
-  return {
-    type: `${page}.CHANGE_COUNT`,
-    payload: {
-      count,
-    },
-  };
-}
+const changeCount = (page, count) => ({
+  type: `${page}.CHANGE_COUNT`,
+  payload: {
+    count,
+  },
+});
+
+export default changeCount

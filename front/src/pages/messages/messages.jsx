@@ -23,17 +23,13 @@ class Message extends React.Component {
   }
 }
 
-function mapStateToProps({ messages: { messages } }) {
-  return { messages };
-}
+const mapStateToProps = ({ messages: { messages } }) => ({ messages });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchMessages: () => {
-      dispatch({ type: 'MESSAGES_FETCH_REQUESTED' });
-    },
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  fetchMessages: () => {
+    dispatch({ type: 'MESSAGES_FETCH_REQUESTED' });
+  },
+});
 
 Message.propTypes = {
   params: React.PropTypes.shape({

@@ -25,7 +25,7 @@ module.exports = {
       loader: ExtractTextPlugin.extract('style',
         'css?modules&importLoaders=1&localIdentName=[path].[name].[local].[hash:base64:5]' +
         '!autoprefixer?browsers=last 2 versions' +
-        '!stylus?resolve url',
+        '!stylus?resolve url'
       ),
     }, {
       test: /\.(svg|jpg|png)$/,
@@ -38,9 +38,7 @@ module.exports = {
       ReactDOM: 'react-dom',
     }),
     new webpack.NoErrorsPlugin(),
-    new ExtractTextPlugin('[name].etp.css'
-      , { allChunks: true },
-    ),
+    new ExtractTextPlugin('[name].etp.css', { allChunks: true }),
     new webpack.optimize.CommonsChunkPlugin({ // find smth commnon and creates seprated modules
       name: 'commonChank',
       minChunks: 2, // common if only in two files or more
