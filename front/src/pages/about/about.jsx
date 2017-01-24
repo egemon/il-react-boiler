@@ -14,12 +14,6 @@ const About = ({ count, changeCount }) => (
 
 const mapStateToProps = ({ about: { count } }) => ({ count });
 
-const mapDispatchToProps = dispatch => ({
-  changeCount: (count) => {
-    dispatch(changeCountAction('ABOUT', count));
-  },
-});
-
 About.propTypes = {
   count: React.PropTypes.number,
   changeCount: React.PropTypes.func.isRequired,
@@ -29,4 +23,6 @@ About.defaultProps = {
   count: 0,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(About);
+export default connect(mapStateToProps, {
+  changeCount: changeCountAction.bind(null, 'ABOUT'),
+})(About);

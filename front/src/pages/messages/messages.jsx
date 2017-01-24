@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
+import { fetchMessagesAction } from '../../async-action-creators';
 
-class Message extends React.Component {
+class Messages extends React.Component {
   componentDidMount() {
     this.props.fetchMessages();
   }
@@ -23,17 +24,9 @@ class Message extends React.Component {
   }
 }
 
-const mapStateToProps = ({ messages: { messages } }) => ({ messages });
-
-const mapDispatchToProps = dispatch => ({
-  fetchMessages: () => {
-    dispatch({ type: 'MESSAGES_FETCH_REQUESTED' });
-  },
-});
-
-Message.propTypes = {
+Messages.propTypes = {
   params: React.PropTypes.shape({
-    id: React.PropTypes.number,
+    id: React.PropTypes.string,
   }),
   messages: React.PropTypes.arrayOf(
     React.PropTypes.shape({
@@ -43,10 +36,14 @@ Message.propTypes = {
   fetchMessages: React.PropTypes.func.isRequired,
 };
 
-Message.defaultProps = {
+Messages.defaultProps = {
   params: {},
   messages: [],
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Message);
+const mapStateToProps = ({ messages: { messages } }) => ({ messages });
+
+export default connect(mapStateToProps, {
+  fetchMessages: fetchMessagesAction,
+})(Messages);
 

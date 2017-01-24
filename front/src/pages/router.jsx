@@ -5,7 +5,6 @@ import About from './about/about';
 import Message from './messages/messages';
 import News from './news/news';
 
-
 const AppRouter = () => (
   <Router history={browserHistory}>
     <Route path="/" component={Root}>

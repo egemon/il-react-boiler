@@ -1,14 +1,15 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import Api from './api';
+import { fetchMessagesActionFail, fetchMessagesActionOk } from './async-action-creators';
 
 // worker Saga: will be fired on MESSAGES_FETCH_REQUESTED actions
 function* fetchMessage(/* action */) {
   try {
     const messages = yield call(Api.fetchMessages);
     const messages2 = yield messages.json();
-    yield put({ type: 'MESSAGES_FETCH_SUCCEEDED', payload: { messages: messages2 } });
-  } catch (e) {
-    yield put({ type: 'MESSAGES_FETCH_FAILED', message: e.message });
+    yield put(fetchMessagesActionOk(messages2));
+  } catch (error) {
+    yield put(fetchMessagesActionFail(error));
   }
 }
 

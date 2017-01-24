@@ -5,4 +5,4 @@ const changeCount = (page, count) => ({
   },
 });
 
-export default changeCount
+export default changeCount;

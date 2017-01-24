@@ -25,7 +25,7 @@ module.exports = {
       loader: ExtractTextPlugin.extract('style',
         'css?modules&importLoaders=1&localIdentName=[path].[name].[local].[hash:base64:5]' +
         '!autoprefixer?browsers=last 2 versions' +
-        '!stylus?resolve url'
+        '!stylus?resolve url',
       ),
     }, {
       test: /\.(svg|jpg|png)$/,
