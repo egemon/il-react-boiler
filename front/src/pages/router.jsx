@@ -2,7 +2,7 @@ import { Router, Route, IndexRoute, Redirect, browserHistory } from 'react-route
 import Root from './root/root';
 import Contacts from './contacts/contacts';
 import About from './about/about';
-import Message from './messages/messages';
+import Messages from './messages/messages';
 import News from './news/news';
 
 const AppRouter = () => (
@@ -11,7 +11,7 @@ const AppRouter = () => (
       <IndexRoute component={About} />
       <Route path="contacts" component={Contacts} />
       <Route path="news" component={News} />
-      <Route path="message(/:id)" component={Message} />
+      <Route path="messages" component={Messages} />
       <Redirect from="home" to="/" />
     </Route>
   </Router>

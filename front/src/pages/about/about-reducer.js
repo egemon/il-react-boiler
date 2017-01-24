@@ -6,3 +6,5 @@ export default function (state = { count: 0 }, { type, payload }) {
       return state;
   }
 }
+
+export const getCount = ({ count }) => ({ count });

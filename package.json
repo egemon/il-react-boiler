@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev-front-server": "webpack-dev-server --inline --hot --config ./front/webpack.dev.js",
-    "dev-back-server": "node ./back/server.js",
+    "dev-fe": "webpack-dev-server --inline --hot --config ./front/webpack.dev.js",
+    "dev-be": "node ./back/server.js",
     "dev": "npm run dev-front-server & npm run dev-back-server",
-    "prod-front-server": "webpack-dev-server --config ./front/webpack.prod.js",
-    "prod-back-server": "node ./back/server.js",
+    "prod-ge": "webpack-dev-server --config ./front/webpack.prod.js",
+    "prod-be": "node ./back/server.js",
     "start": "npm run prod-front-server & npm run prod-back-server",
     "test": "mocha-webpack",
     "precommit": "eslint --fix --ext .jsx --ext .js ./**/*"

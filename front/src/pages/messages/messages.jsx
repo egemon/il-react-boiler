@@ -1,21 +1,24 @@
 import { connect } from 'react-redux';
 import { fetchMessagesAction } from '../../async-action-creators';
+import Message from '../../components/message/message';
+import { getMessages } from '../../root-reducer';
+
 
 class Messages extends React.Component {
   componentDidMount() {
     this.props.fetchMessages();
   }
 
-  // TODO: refactore
-
   renderMessages() {
-    return this.props.messages.map(message => message.text);
+    return this.props.messages.map(
+      message => <Message key={message.id} {...message} />
+    );
   }
 
   render() {
     return (
       <div>
-        <h1>{this.props.params.id}</h1>
+        <h1>Messages List</h1>
         <div>
           {this.renderMessages()}
         </div>
@@ -25,9 +28,9 @@ class Messages extends React.Component {
 }
 
 Messages.propTypes = {
-  params: React.PropTypes.shape({
-    id: React.PropTypes.string,
-  }),
+  // params: React.PropTypes.shape({
+  //   id: React.PropTypes.string,
+  // }),
   messages: React.PropTypes.arrayOf(
     React.PropTypes.shape({
       text: React.PropTypes.string,
@@ -37,13 +40,11 @@ Messages.propTypes = {
 };
 
 Messages.defaultProps = {
-  params: {},
+  // params: {},
   messages: [],
 };
 
-const mapStateToProps = ({ messages: { messages } }) => ({ messages });
-
-export default connect(mapStateToProps, {
+export default connect(getMessages, {
   fetchMessages: fetchMessagesAction,
 })(Messages);
 

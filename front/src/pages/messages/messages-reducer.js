@@ -6,3 +6,5 @@ export default function (state = { messages: [] }, { type, payload }) {
       return state;
   }
 }
+
+export const getMessagesList = state => ({ messages: state.messages });

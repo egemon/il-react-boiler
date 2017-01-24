@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Counter from '../../components/counter/counter';
 import changeCountAction from '../../components/counter/counter-actions-creators';
+import { getAboutCount } from '../../root-reducer';
 
 const About = ({ count, changeCount }) => (
   <div>
@@ -12,8 +13,6 @@ const About = ({ count, changeCount }) => (
   </div>
 );
 
-const mapStateToProps = ({ about: { count } }) => ({ count });
-
 About.propTypes = {
   count: React.PropTypes.number,
   changeCount: React.PropTypes.func.isRequired,
@@ -23,6 +22,6 @@ About.defaultProps = {
   count: 0,
 };
 
-export default connect(mapStateToProps, {
+export default connect(getAboutCount, {
   changeCount: changeCountAction.bind(null, 'ABOUT'),
 })(About);

@@ -12,9 +12,9 @@ const Links = () => (
       </Navbar.Brand>
     </Navbar.Header>
     <Nav>
-      <LinkContainer to="/message/3">
+      <LinkContainer to="/messages">
         <NavItem>
-          Message
+          Messages
         </NavItem>
       </LinkContainer>
 

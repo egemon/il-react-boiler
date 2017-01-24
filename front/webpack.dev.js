@@ -22,11 +22,10 @@ module.exports = {
       loader: 'babel',
     }, {
       test: /\.styl$/,
-      loader: ExtractTextPlugin.extract('style',
+      loader: ExtractTextPlugin.extract(
+        'style',
         'css?modules&importLoaders=1&localIdentName=[path].[name].[local].[hash:base64:5]' +
-        '!autoprefixer?browsers=last 2 versions' +
-        '!stylus?resolve url',
-      ),
+        '!autoprefixer?browsers=last 2 versions!stylus?resolve url'),
     }, {
       test: /\.(svg|jpg|png)$/,
       loader: 'file?name=[path][name].[ext]?[hash]', // hot reload need hash

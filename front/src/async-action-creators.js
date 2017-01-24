@@ -2,7 +2,7 @@ export const fetchMessagesAction = () => ({
   type: 'MESSAGES_FETCH_REQUESTED',
 });
 
-export const fetchMessagesActionOk = messages => ({
+export const fetchMessagesActionOk = ({ data: messages }) => ({
   type: 'MESSAGES_FETCH_SUCCEEDED',
   payload: {
     messages,
