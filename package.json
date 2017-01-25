@@ -6,10 +6,11 @@
   "scripts": {
     "dev-fe": "webpack-dev-server --inline --hot --config ./front/webpack.dev.js",
     "dev-be": "node ./back/server.js",
-    "dev": "npm run dev-front-server & npm run dev-back-server",
+    "dev": "npm run dev-fe & npm run dev-be",
     "prod-ge": "webpack-dev-server --config ./front/webpack.prod.js",
     "prod-be": "node ./back/server.js",
-    "start": "npm run prod-front-server & npm run prod-back-server",
+    "prod": "npm run prod-fe & npm run prod-be",
+    "start": "npm run dev",
     "test": "mocha-webpack",
     "precommit": "eslint --fix --ext .jsx --ext .js ./**/*"
   },
@@ -59,6 +60,7 @@
     "react-router": "^3.0.0",
     "react-router-bootstrap": "^0.23.1",
     "redux": "^3.6.0",
+    "redux-logger": "^2.7.4",
     "redux-saga": "^0.14.3"
   }
 }

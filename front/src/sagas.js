@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import Api from './api';
-import { fetchMessagesActionFail, fetchMessagesActionOk } from './async-action-creators';
+import { fetchMessagesActionFail, fetchMessagesActionOk } from './actions/async';
 
 function* fetchMessage(/* action */) {
   try {

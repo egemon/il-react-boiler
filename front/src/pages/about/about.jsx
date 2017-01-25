@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Counter from '../../components/counter/counter';
-import changeCountAction from '../../components/counter/counter-actions-creators';
-import { getAboutCount } from '../../root-reducer';
+import changeCountAction from '../../actions/counter';
+import { getAboutCount } from '../../reducers/root-reducer';
 
 const About = ({ count, changeCount }) => (
   <div>

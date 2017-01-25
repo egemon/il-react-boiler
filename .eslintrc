@@ -20,6 +20,7 @@
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
     "react/react-in-jsx-scope": 0,
+    "no-console": 0,
     "import/no-extraneous-dependencies": [2, {
       "devDependencies": ["**/*.test.js", "**/*.test.jsx", "**/webpack.**", "**/test-helpers/**"]
     }]

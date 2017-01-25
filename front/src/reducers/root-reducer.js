@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import about, { getCount } from './pages/about/about-reducer';
-import messages, { getMessagesList } from './pages/messages/messages-reducer';
+import about, { getCount } from './about-reducer';
+import messages, { getMessagesList } from './messages-reducer';
 
 export default combineReducers({
   about,

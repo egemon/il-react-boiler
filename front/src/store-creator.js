@@ -1,43 +1,27 @@
 import { createStore, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-
-import rootReducer from './root-reducer';
-
+import createSaga from 'redux-saga';
+import createLogger from 'redux-logger';
+import rootReducer from './reducers/root-reducer';
 import sagas from './sagas';
+
+
 // import { saveState, loadState } from './localStorage';
 
-const addLoggingToDispatch = (store) => {
-  /* eslint-disable no-console */
-  const rawDispatch = store.dispatch;
-  if (!console.group) {
-    return rawDispatch;
-  }
-
-  return (action) => {
-    console.group(action.type);
-    console.log('%c prev state', 'color: gray', store.getState());
-    console.log('%c action', 'color: blue', action);
-    const returnValue = rawDispatch(action);
-    console.log('%c next state', 'color: green', store.getState());
-    console.groupEnd(action.type);
-    return returnValue;
-  };
-  /* eslint-enable no-console */
-};
-
-
-const sagaMiddleware = createSagaMiddleware();
 export default function createAppStore() {
+  const middlewares = [];
+  const sagaMiddleware = createSaga();
+  if (process.env.NODE_ENV !== 'production') {
+    middlewares.push(createLogger());
+  }
+  middlewares.push(sagaMiddleware);
+
   const store = createStore(rootReducer,
     // loadState(),
-    applyMiddleware(sagaMiddleware),
+    applyMiddleware(...middlewares),
   );
 
-  if (process.env.NODE_ENV !== 'production') {
-    store.dispatch = addLoggingToDispatch(store);
-  }
-
   sagaMiddleware.run(sagas);
+
 
   // store.subscribe(() => {
   //   saveState(store.getState());
