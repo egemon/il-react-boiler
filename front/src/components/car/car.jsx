@@ -14,10 +14,10 @@ const Car = ({ park, unpark, type, parkingInfo }) => (
     This is car of type {type}
     <ParkingInfo parkingInfo={parkingInfo} />
     <button
-      onClick={() => park({ type })}
+      onClick={() => park({ type, parkingInfo })}
     >Park</button>
     <button
-      onClick={() => unpark({ type })}
+      onClick={() => unpark({ type, parkingInfo })}
     >unpark</button>
   </div>
 );
@@ -38,16 +38,16 @@ Car.defaultProps = {
 
 function mapDispatchToProps(dispatch) {
   return {
-    park({ type }) {
+    park(car) {
       dispatch({
         type: 'CAR_ARRIVED',
-        payload: { type },
+        payload: car,
       });
     },
-    unpark({ type }) {
+    unpark(car) {
       dispatch({
         type: 'CAR_LEFT',
-        payload: { type },
+        payload: car,
       });
     },
   };
