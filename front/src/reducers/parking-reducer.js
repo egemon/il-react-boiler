@@ -77,5 +77,3 @@ export default function (state = initialState, { type, payload: car }) {
       return state;
   }
 }
-
-export const getCount = ({ count }) => ({ count });
