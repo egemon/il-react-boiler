@@ -1,26 +1,31 @@
 import { connect } from 'react-redux';
-import Car from '../../components/car/car';
-import Sedan from '../../components/sedan-car/sedan-car';
-import Disabled from '../../components/disabled-car/disabled-car';
-import Truck from '../../components/truck-car/truck-car';
 import ParkStackList from '../../components/park-stack-list/park-stack-list';
 
 
-const Home = ({ parking }) => (<div>
-    This is parking
-    <Car />
-  <Sedan />
-  <Truck />
-  <Disabled />
+const Home = ({ parking, park }) => (<div>
+  This is parking:
+  <ul>
+    <li>
+      <button onClick={() => park({ type: 'sedan' })}>Park sedan</button>
+    </li>
+    <li>
+      <button onClick={() => park({ type: 'truck' })}>Park truck</button>
+    </li>
+    <li>
+      <button onClick={() => park({ type: 'disabled' })}>Park disabled</button>
+    </li>
+  </ul>
   <ParkStackList parking={parking} />
 </div>);
 
 Home.propTypes = {
   parking: React.PropTypes.object,
+  park: React.PropTypes.func,
 };
 
 Home.defaultProps = {
   parking: {},
+  park: ()=>{},
 };
 
 function mapStateToProps(state) {
@@ -29,5 +34,16 @@ function mapStateToProps(state) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    park(car) {
+      dispatch({
+        type: 'CAR_ARRIVED',
+        payload: car,
+      });
+    }
+  };
+}
 
-export default connect(mapStateToProps)(Home);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

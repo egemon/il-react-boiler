@@ -14,23 +14,18 @@ const Car = ({ park, unpark, type, parkingInfo }) => (
     This is car of type {type}
     <ParkingInfo parkingInfo={parkingInfo} />
     <button
-      onClick={() => park({ type, parkingInfo })}
-    >Park</button>
-    <button
       onClick={() => unpark({ type, parkingInfo })}
     >unpark</button>
   </div>
 );
 
 Car.propTypes = {
-  park: React.PropTypes.func,
   unpark: React.PropTypes.func,
   type: React.PropTypes.string,
   parkingInfo: React.PropTypes.object,
 };
 
 Car.defaultProps = {
-  park: function park() { console.warn('park  !!!'); },
   unpark: function unpark() { console.warn('unpark  !!!'); },
   type: 'sedan',
   parkingInfo: null,
@@ -38,12 +33,6 @@ Car.defaultProps = {
 
 function mapDispatchToProps(dispatch) {
   return {
-    park(car) {
-      dispatch({
-        type: 'CAR_ARRIVED',
-        payload: car,
-      });
-    },
     unpark(car) {
       dispatch({
         type: 'CAR_LEFT',

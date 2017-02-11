@@ -12,7 +12,7 @@ const ParkStack = ({ stackName, places }) => {
 
 ParkStack.propTypes = {
   stackName: React.PropTypes.string,
-  places: React.PropTypes.func,
+  places: React.PropTypes.array,
 };
 
 ParkStack.defaultProps = {
