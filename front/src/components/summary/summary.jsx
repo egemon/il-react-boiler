@@ -1,12 +1,20 @@
+function getNumberOfCars(type, allCars) {
+  return allCars.filter(car => car.type === type).length;
+}
 const Summary = ({ parking }) => {
-  const truckNumber = parking.trucks.filter(content => content === null);
+  const allPlaces = Object.keys(parking)
+  .reduce((cars, key) => cars.concat(parking[key]), []);
+  const allCars = allPlaces.filter(el => !!el);
+
+  console.log('allCars', allCars);
 
   return (
     <div style={{ border: '1px solid black' }}>
       <ul>
-        <li>Here is {truckNumber} trucks</li>
-        <li>Here is {sedanNumber} sedans</li>
-        <li>Here is {disabledNumber} disableds</li>
+        <li>There are {allPlaces.length - allCars.length} free places </li>
+        <li>Here is {getNumberOfCars('truck', allCars)} trucks</li>
+        <li>Here is {getNumberOfCars('sedan', allCars)} sedans</li>
+        <li>Here is {getNumberOfCars('disabled', allCars)} disableds</li>
       </ul>
     </div>
   );

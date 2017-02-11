@@ -1,7 +1,7 @@
 import Car from '../../components/car/car';
 
 const ParkPlace = ({ content }) => {
-  if (content === null) {
+  if (!content) {
     return <div>This place is vacant</div>;
   }
   return (

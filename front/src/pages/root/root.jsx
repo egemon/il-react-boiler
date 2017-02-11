@@ -7,7 +7,8 @@ function showSummary(parking) {
 
 }
 
-const Home = ({ parking, park }) => (
+const Home = ({ parking, park }) => {
+  return (
   <div>
     This is parking:
     <ul>
@@ -21,9 +22,11 @@ const Home = ({ parking, park }) => (
         <button onClick={() => park({ type: 'disabled' })}>Park disabled</button>
       </li>
     </ul>
+    <Summary parking={parking} />
     <ParkStackList parking={parking} />
   </div>
   );
+};
 
 Home.propTypes = {
   parking: React.PropTypes.object,
@@ -32,7 +35,7 @@ Home.propTypes = {
 
 Home.defaultProps = {
   parking: {},
-  park: () => {},
+  park: ()=>{},
 };
 
 function mapStateToProps(state) {
@@ -48,7 +51,7 @@ function mapDispatchToProps(dispatch) {
         type: 'CAR_ARRIVED',
         payload: car,
       });
-    },
+    }
   };
 }
 
