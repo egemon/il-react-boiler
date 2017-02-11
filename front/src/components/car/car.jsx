@@ -1,15 +1,7 @@
 import { connect } from 'react-redux';
+import ParkingInfo from '../parking-info/parking-info';
 
-const ParkingInfo = ({ parkingInfo }) => {
-  if (parkingInfo) {
-    return (<div>
-      It is parked in stack {parkingInfo.stack} at {parkingInfo.position}
-    </div>);
-  }
-  return <div>Not parked</div>;
-};
-
-const Car = ({ park, unpark, type, parkingInfo }) => (
+const Car = ({ unpark, type, parkingInfo }) => (
   <div style={{ border: '1px solid black' }}>
     This is car of type {type}
     <ParkingInfo parkingInfo={parkingInfo} />
