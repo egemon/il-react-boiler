@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ParkStackList from '../../components/park-stack-list/park-stack-list';
 import Summary from '../../components/summary/summary';
+
 const carTypes = ['sedan', 'truck', 'disabled'];
 
 class Home extends React.Component {
