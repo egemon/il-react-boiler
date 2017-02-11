@@ -1,22 +1,29 @@
 import { connect } from 'react-redux';
 import ParkStackList from '../../components/park-stack-list/park-stack-list';
+import Summary from '../../components/summary/summary';
 
 
-const Home = ({ parking, park }) => (<div>
-  This is parking:
-  <ul>
-    <li>
-      <button onClick={() => park({ type: 'sedan' })}>Park sedan</button>
-    </li>
-    <li>
-      <button onClick={() => park({ type: 'truck' })}>Park truck</button>
-    </li>
-    <li>
-      <button onClick={() => park({ type: 'disabled' })}>Park disabled</button>
-    </li>
-  </ul>
-  <ParkStackList parking={parking} />
-</div>);
+function showSummary(parking) {
+
+}
+
+const Home = ({ parking, park }) => (
+  <div>
+    This is parking:
+    <ul>
+      <li>
+        <button onClick={() => park({ type: 'sedan' })}>Park sedan</button>
+      </li>
+      <li>
+        <button onClick={() => park({ type: 'truck' })}>Park truck</button>
+      </li>
+      <li>
+        <button onClick={() => park({ type: 'disabled' })}>Park disabled</button>
+      </li>
+    </ul>
+    <ParkStackList parking={parking} />
+  </div>
+  );
 
 Home.propTypes = {
   parking: React.PropTypes.object,
@@ -25,7 +32,7 @@ Home.propTypes = {
 
 Home.defaultProps = {
   parking: {},
-  park: ()=>{},
+  park: () => {},
 };
 
 function mapStateToProps(state) {
@@ -41,7 +48,7 @@ function mapDispatchToProps(dispatch) {
         type: 'CAR_ARRIVED',
         payload: car,
       });
-    }
+    },
   };
 }
 

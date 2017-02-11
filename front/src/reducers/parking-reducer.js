@@ -4,13 +4,13 @@ const max = {
   truck: 10,
 };
 const initialState = {
-  disabled: new Array(max.disabled).fill('empty'),
-  sedan: new Array(max.sedan).fill('empty'),
-  truck: new Array(max.truck).fill('empty'),
+  disabled: new Array(max.disabled).fill(null),
+  sedan: new Array(max.sedan).fill(null),
+  truck: new Array(max.truck).fill(null),
 };
 
 function getEmptyPosition(arr) {
-  return arr.indexOf('empty');
+  return arr.indexOf(null);
 }
 function saveToLC(newState) {
   try {
@@ -67,7 +67,7 @@ export default function (state = initialState, { type, payload: car }) {
 
     case 'CAR_LEFT':
       const stack = state[car.parkingInfo.stack];
-      stack[car.parkingInfo.position] = 'empty';
+      stack[car.parkingInfo.position] = null;
       newState = {
         ...state,
         [car.parkingInfo.stack]: [...stack],

@@ -1,7 +1,7 @@
 import Car from '../../components/car/car';
 
 const ParkPlace = ({ content }) => {
-  if (content === 'empty') {
+  if (content === null) {
     return <div>This place is vacant</div>;
   }
   return (
@@ -19,7 +19,7 @@ ParkPlace.propTypes = {
 };
 
 ParkPlace.defaultProps = {
-  content: 'empty',
+  content: null,
 };
 
 
