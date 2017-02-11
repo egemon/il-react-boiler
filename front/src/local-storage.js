@@ -6,6 +6,7 @@ export const saveState = (state) => {
   } catch (err) {
     console.log('err', err);
   }
+  return state;
 };
 
 export const loadState = () => {

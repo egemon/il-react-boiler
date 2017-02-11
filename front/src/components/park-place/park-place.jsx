@@ -22,5 +22,4 @@ ParkPlace.defaultProps = {
   content: null,
 };
 
-
 export default ParkPlace;
