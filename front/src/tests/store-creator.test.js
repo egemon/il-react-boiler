@@ -2,7 +2,7 @@ import expect from 'expect';
 import createAppStore from '../store-creator';
 
 describe('store-creator', () => {
-  it('should update counter of about page', () => {
+  it('should update counter of home page', () => {
     const store = createAppStore();
     store.dispatch({
       type: 'ABOUT.CHANGE_COUNT',

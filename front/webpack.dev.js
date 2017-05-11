@@ -41,13 +41,13 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({ // find smth commnon and creates seprated modules
       name: 'commonChank',
       minChunks: 2, // common if only in two files or more
-      // chunks: ['about', 'home']
+      // chunks: ['home', 'home']
     }),
     // new webpack.HotModuleReplacementPlugin(),
     new HTMLPlugin({
       template: '../index.html',
       // filename: 'index.html',
-      // chunks: ['common', 'common.css', 'about'],
+      // chunks: ['common', 'common.css', 'home'],
       // path: __dirname + '/public',
     }),
   ],

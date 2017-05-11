@@ -13,7 +13,7 @@ const Navigation = () => (
     </Navbar.Header>
     <Nav>
       <LinkContainer
-        to={{pathname: '/messages'}}
+        to={{ pathname: '/messages' }}
       >
         <NavItem>Messages</NavItem>
       </LinkContainer>

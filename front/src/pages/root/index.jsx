@@ -2,7 +2,7 @@ import Navigation from '../../components/navigation';
 
 const Home = ({ children }) => (
   <div>
-    <h1>Our Site</h1>
+    <h1>Easy Declaration</h1>
     <Navigation />
     {children}
   </div>
