@@ -1,9 +1,9 @@
-import Links from '../../components/links/links';
+import Navigation from '../../components/navigation';
 
 const Home = ({ children }) => (
   <div>
     <h1>Our Site</h1>
-    <Links />
+    <Navigation />
     {children}
   </div>
 

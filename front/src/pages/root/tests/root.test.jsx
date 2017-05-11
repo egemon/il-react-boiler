@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import expectJSX from 'expect-jsx';
-import Root from '../root';
+import Root from '../index';
 import renderComponent from '../../../test-helpers/render-component';
 
 expect.extend(expectJSX); // toEqualJSX, ToIncludeJSX

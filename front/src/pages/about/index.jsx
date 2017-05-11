@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Counter from '../../components/counter/counter';
+import Counter from '../../components/counter/index';
 import changeCountAction from '../../actions/counter';
 import { getAboutCount } from '../../reducers/root-reducer';
 

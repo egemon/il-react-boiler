@@ -1,7 +1,7 @@
 import expect from 'expect';
 import { Link } from 'react-router';
 import expectJSX from 'expect-jsx';
-import Links from './links';
+import Links from './index';
 import renderComponent from '../../test-helpers/render-component';
 
 expect.extend(expectJSX); // toEqualJSX, ToIncludeJSX

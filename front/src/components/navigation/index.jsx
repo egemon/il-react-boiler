@@ -2,7 +2,7 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const Links = () => (
+const Navigation = () => (
   <Navbar>
     <Navbar.Header>
       <Navbar.Brand>
@@ -12,23 +12,13 @@ const Links = () => (
       </Navbar.Brand>
     </Navbar.Header>
     <Nav>
-      <LinkContainer to="/messages">
-        <NavItem>
-          Messages
-        </NavItem>
-      </LinkContainer>
-
-      <LinkContainer to="/news">
-        <NavItem>News</NavItem>
-      </LinkContainer>
       <LinkContainer
-        to={{ pathname: '/contacts',
-          query: { subject: 'Yo' } }}
+        to={{pathname: '/messages'}}
       >
-        <NavItem>Contacts</NavItem>
+        <NavItem>Messages</NavItem>
       </LinkContainer>
     </Nav>
   </Navbar>
 );
 
-export default Links;
+export default Navigation;

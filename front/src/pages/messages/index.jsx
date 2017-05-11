@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchMessagesAction } from '../../actions/async';
-import Message from '../../components/message/message';
+import Message from '../../components/message/index';
 import { getMessages } from '../../reducers/root-reducer';
-
 
 class Messages extends React.Component {
   componentDidMount() {
